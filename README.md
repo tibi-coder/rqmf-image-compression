@@ -4,7 +4,6 @@ This repository contains an implementation of **Regularized Quantized Matrix Fac
 
 The method approximates images using a low-rank matrix factorization while constraining the factor matrices to **bounded integer values**. By incorporating quantization directly into the optimization process, the algorithm accounts for quantization effects during factorization instead of applying quantization as a separate step.
 
-This implementation accompanies research work that will appear at the **IFAC World Congress 2026**.
 
 ---
 
