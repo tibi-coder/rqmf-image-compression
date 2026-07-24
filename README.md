@@ -2,7 +2,7 @@
 
 This repository contains an implementation of **Regularized Quantized Matrix Factorization (RQMF)** for lossy image compression.
 
-The method approximates images using a low-rank matrix factorization while constraining the factor matrices to **bounded integer values**. By incorporating quantization directly into the optimization process, the algorithm accounts for quantization effects during factorization instead of applying quantization as a separate step.
+The method approximates RGB images using a low-rank matrix factorization while constraining the factor matrices to **bounded integer values**. By incorporating quantization directly into the optimization process, the algorithm accounts for quantization effects during factorization instead of applying quantization as a separate step.
 
 
 ---
