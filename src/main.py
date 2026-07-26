@@ -238,7 +238,7 @@ def compress_image(img_path, Q, output_file):
     )
 
     size = os.path.getsize(output_file)
-    bpp = (size * 8) / (HY * WY)
+    bpp = (size * 5) / (HY * WY)
 
     return bpp
 
