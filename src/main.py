@@ -13,6 +13,8 @@ from skimage.measure import shannon_entropy
 patching = True
 mi = True
 patch_size = 8
+gamma = 60
+gamma_shift = 20
 
 alpha, beta = -16, 15
 iterations = 10
@@ -85,20 +87,20 @@ def compute_mi_y(Y):
     H = shannon_entropy(Y)
     Hmax = np.log2(256)
 
-    gamma = 60
-    val = gamma * (1 - H / Hmax)
+    gamma_y = gamma
+    val = gamma_y * (1 - H / Hmax)
 
-    return float(np.clip(val, 0.5, 50))
+    return val
 
 
 def compute_mi_c(C):
     H = shannon_entropy(C)
     Hmax = np.log2(256)
 
-    gamma = 80
-    val = gamma * (1 - H / Hmax)
+    gamma_c = gamma+gamma_shift
+    val = gamma_c * (1 - H / Hmax)
 
-    return float(np.clip(val, 0.5, 70))
+    return val
 
 
 def qmf_single_channel(X, rank, iterations, alpha, beta, mi_local):
@@ -238,7 +240,7 @@ def compress_image(img_path, Q, output_file):
     )
 
     size = os.path.getsize(output_file)
-    bpp = (size * 5) / (HY * WY)
+    bpp = (size * 8) / (HY * WY)
 
     return bpp
 
